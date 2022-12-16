@@ -10,7 +10,12 @@ namespace MarombaApi.Models
     public class InfoPerson
     {
         [Required]
-        private int UserId;
-        public decimal();
+        public int UserId { get; }
+        [Required]
+        public decimal Height { get; set; }
+        [Required]
+        public decimal Weight { get; set; }
+        [Required]
+        public int Age { get; set; }
     }
 }
