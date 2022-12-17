@@ -1,4 +1,21 @@
+using UserApi.Data;
+using Microsoft.EntityFrameworkCore;
+using UserApi.Models;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("UserMarombaDb");
+builder.Services.AddDbContext<UserDbContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddIdentity<CustomIdentityUser, CustomIdentityRole>
+    (
+        opt => 
+        {
+            opt.SignIn.RequireConfirmedEmail = true;
+        }
+    ).AddEntityFrameworkStores<UserDbContext>()
+    .AddDefaultTokenProviders();
 
 // Add services to the container.
 
@@ -18,6 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
