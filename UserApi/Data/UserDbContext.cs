@@ -9,7 +9,7 @@ using UserApi.Models;
 
 namespace UserApi.Data
 {
-    public class UserDbContext : IdentityDbContext<CustomIdentityUser, CustomIdentityRole,int>
+    public class UserDbContext : IdentityDbContext<User, Role,int>
     {
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
@@ -19,9 +19,9 @@ namespace UserApi.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<CustomIdentityRole>().HasIndex(u => u.Name).IsUnique();
-            builder.Entity<CustomIdentityUser>().HasIndex(u => u.UserName).IsUnique();
-            builder.Entity<CustomIdentityUser>().HasIndex(u => u.Email).IsUnique();
+            builder.Entity<Role>().HasIndex(u => u.Name).IsUnique();
+            builder.Entity<User>().HasIndex(u => u.UserName).IsUnique();
+            builder.Entity<User>().HasIndex(u => u.Email).IsUnique();
         }
 
 

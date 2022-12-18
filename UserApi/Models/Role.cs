@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace UserApi.Models
 {
-    public class CustomIdentityRole : IdentityRole<int>
+    public class Role : IdentityRole<int>
     {
         public override string? NormalizedName => Name.ToLower();
     }

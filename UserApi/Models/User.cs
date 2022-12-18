@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace UserApi.Models
 {
-    public class CustomIdentityUser : IdentityUser<int>
+    public class User : IdentityUser<int>
     {
         public DateTime? BirthDay { get; set; }
         public override string? NormalizedEmail => Email.ToLower();
