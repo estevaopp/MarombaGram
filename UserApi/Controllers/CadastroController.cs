@@ -18,7 +18,7 @@ namespace UserApi.Controllers
         }
 
         [HttpPost]
-        public Task<IActionResult> CadastrarUsuario(CreateUserRequest createUserRequest)
+        public IActionResult CadastrarUsuario(CreateUserRequest createUserRequest)
         {
             return StatusCode(500);
         }

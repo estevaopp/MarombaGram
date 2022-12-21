@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using UserApi.Data.Requests;
 using UserApi.Data.Response;
+using UserApi.Data.Dtos;
 using UserApi.Models;
 
 namespace UserApi.Profiles
